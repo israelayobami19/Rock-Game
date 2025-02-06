@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="CSS/style.css">
     <script defer src="JS/script.js"></script>
 </head>
-<body>
+<body class="preload">
     <div class="container">
         <header class="header">
             <img src="IMG/logo.svg" alt="Logo" class="logo">
@@ -25,7 +25,7 @@
             </button>
             <button class="choice_btn" data-choice="scissors">
                 <div class="choice scissors">
-                    <img src="IMG/icon-Scissors.svg" alt="Scissors">
+                    <img src="IMG/icon-scissors.svg" alt="Scissors">
                 </div>
             </button>
             <button class="choice_btn" data-choice="rock">
@@ -36,6 +36,24 @@
         </section>
     </div>
 
-    <button class="rules_btn">rules</button>
+    <section class="results">
+        <h2 class="results_heading">you picked</h2>
+        <h2 class="results_heading">the house picked</h2>
+        <div class="results_result"></div>
+        <div class="results_result"></div>
+    </section>
+
+    <button class="rules_btn" tabindex="1">rules</button>
+    <div class="modal">
+        <div class="modal_container">
+            <header class="modal_header">
+                <h2 class="modal_heading">rules</h2>
+                <button class="close_btn">
+                    <img src="IMG/icon-close.svg" alt="Close Button">
+                </button>
+            </header>
+            <img src="IMG/image-rules.svg" class="rules_img" alt="Rules Image">
+        </div>
+    </div>
 </body>
 </html>
