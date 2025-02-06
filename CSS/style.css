@@ -19,18 +19,19 @@
 
 /* Background */
 
---Radial-Gradient: hsl(214, 47%, 23%) to hsl(237, 49%, 15%);
+--Radial-Gradient: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%), hsl(237, 49%, 15%));
 
 }
 
 body {
     font-family: "Barlow semi Condensed", sans-serif;
-    background-color: radial-graident(at top, var(--bg-grad-1), var(--bg-grad-2));
+    background-color: hsl(237, 49%, 15%);
+    background-image: var(--Radial-Gradient);
     min-height: 100vh;
     text-transform: uppercase; 
 }
 
-.contianer {
+.container {
     position: relative;
     max-width: 700px;
     margin: 0 auto;
@@ -42,8 +43,8 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 150px;
-    border: 1px solid var(--outline);
-    border-radius: 200px;
+    border: 3px solid var(--Header-Outline);
+    border-radius: 20px;
     padding: 1rem 1.4rem 1rem 2rem;
 }
 
