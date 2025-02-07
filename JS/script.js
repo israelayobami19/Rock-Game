@@ -30,6 +30,11 @@ const resultDivs = document.querySelectorAll('.results_result');
 const resultWinner = document.querySelector('.results_winner');
 const resultText = document.querySelector('.results_text');
 
+const playAgainBtn = document.querySelector('.play_again');
+
+const scoreNumber = document.querySelector('.score_number')
+let score = 0;
+
 choiceButtons.forEach(button => {
     button.addEventListener('click', () => {
         const choiceName = button.dataset.choice;
@@ -52,13 +57,13 @@ function aiChoose() {
 function displayResults(results) {
     resultDivs.forEach((resultDiv, idx) => {
         setTimeout(() => {
-            resultDiv.innerHTML ='<div class="choice ${results[idx].name}"><img src="IMG/icon-${results[idx].name}.svg" alt="${results[idx].name}" /></div>'
-        }, idx * 1000) ;
-    });
+            resultDiv.innerHTML = '<div class="choice ${results[idx].name"><img src="IMG/icon-${results[idx].name}.svg" alt="${results[idx].name}"/> </div>'
+        }, idx * 1000);
+    })
 
     gameDiv.classList.toggle("hidden")
     resultDiv.classList.toggle("hidden")
-}
+    };
 
 function displayWinner(results) {
     setTimeout(() => {
@@ -66,11 +71,14 @@ function displayWinner(results) {
         const aiWins = isWinner(results.reverse());
 
         if(userWins) {
-            resultText.innerText = "you win"
+            resultText.innerText = "you win";
+            resultDivs[0].classList.toggle('winner');
+            keepScore(-1);
         } else if(aiWins) {
-            resultText.innerText = "you lose"
+            resultText.innerText = "you lose";
+            resultDivs[1].classList.toggle('winner');
         } else {
-            resultText.innerText = "draw" 
+            resultText.innerText = "draw" ;
         }
         resultWinner.classList.toggle('hidden');
         resultDiv.classList.toggle('show-winner');
@@ -81,6 +89,25 @@ function displayWinner(results) {
 function isWinner(results) {
     return results[0].beats == results[1].name;
 }
+
+function keepScore(point){
+    score += point;
+    scoreNumber.innerText = score;
+}
+
+playAgainBtn.addEventListener('click', () => {
+    gameDiv.classList.toggle('hidden')
+    resultDiv.classList.toggle('hidden')
+
+    resultDivs.forEach(resultDiv => {
+        resultDiv.innerHTML = " ";
+        resultDiv.classList.remove('winner');
+    })
+
+    resultText.innerText = "";
+    resultWinner.classList.toggle('hidden')
+    resultDiv.classList.toggle('show-winner')
+})
 
 btnRules.addEventListener('click', ()=> {
     modalRules.classList.toggle('show_modal')
