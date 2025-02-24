@@ -180,12 +180,12 @@ body {
         "you-title ai-title"
         "you-picked ai-picked";
     max-width: 1000px;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 .results_heading {
     font-size: 1.5rem;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.1em;
     padding: 4rem 0 8rem;
 }
 
@@ -204,17 +204,17 @@ body {
 .results_heading:last-of-type {
     grid-area: ai-title;
 }
-.results_heading:first-of-type {
+.results_result:first-of-type {
     grid-area: you-picked;
 }
-.results_heading:first-of-type {
+.results_result:last-of-type {
     grid-area: ai-picked;
 }
 
 .results.show-winner {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-areas: 
-    "you-title . ai-title"
+    "you-title  ai-title"
     "you-picked result-winner ai-picked";
 }
 
@@ -233,7 +233,7 @@ body {
 }
 
 .results_winner {
-    grid-area: result_winner;
+    grid-area: result-winner;
     display: grid;
     place-items: center;
 }
@@ -247,13 +247,13 @@ body {
     background-color: #fff;
     outline: none;
     border: 2px solid transparent;
-    border-radius: 0.rem;
+    border-radius: 0.6rem;
     color: var(--Dark-Text);
     padding: 0.6rem 3.5rem;
     font-family: inherit;
     text-transform: inherit;
     font-size: 1.3rem;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.1em;
     cursor: pointer;
 }
 
@@ -312,6 +312,7 @@ body {
 .modal_heading {
     font-size: 1.5rem;
     color: var(--Dark-Text);
+    padding-left: 2rem;
 }
 
 .close_btn {
@@ -319,6 +320,7 @@ body {
     outline: none;
     background: none;
     cursor: pointer;
+    padding-right: 2rem;
 }
 
 .rules_img {
