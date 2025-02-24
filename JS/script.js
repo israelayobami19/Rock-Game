@@ -4,7 +4,7 @@ setTimeout(() => {
 
 const btnRules = document.querySelector('.rules_btn');
 const btnClose = document.querySelector('.close_btn');
-const modalRules = document.querySelector('modal');
+const modalRules = document.querySelector('.modal');
 
 
 const CHOICES = [
@@ -19,7 +19,7 @@ const CHOICES = [
     {
         name: "rock",
         beats: "scissors"
-    }
+    },
 ]
 
 const choiceButtons = document.querySelectorAll('.choice_btn');
@@ -34,6 +34,8 @@ const playAgainBtn = document.querySelector('.play_again');
 
 const scoreNumber = document.querySelector('.score_number')
 let score = 0;
+
+
 
 choiceButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -57,7 +59,7 @@ function aiChoose() {
 function displayResults(results) {
     resultDivs.forEach((resultDiv, idx) => {
         setTimeout(() => {
-            resultDiv.innerHTML = '<div class="choice ${results[idx].name"><img src="IMG/icon-${results[idx].name}.svg" alt="${results[idx].name}"/> </div>'
+            resultDiv.innerHTML = `<div class="choice ${results[idx].name}"><img src="IMG/icon-${results[idx].name}.svg" alt="${results[idx].name}"/> </div>`
         }, idx * 1000);
     })
 
@@ -109,10 +111,10 @@ playAgainBtn.addEventListener('click', () => {
     resultDiv.classList.toggle('show-winner')
 })
 
-btnRules.addEventListener('click', ()=> {
+btnRules.addEventListener('click', () => {
     modalRules.classList.toggle('show_modal')
 })
 
-btnClose.addEventListener('click', ()=> {
+btnClose.addEventListener('click', () => {
     modalRules.classList.toggle('show_modal')
 })
